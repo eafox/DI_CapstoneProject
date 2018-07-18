@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>HTML Template</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="css/owl.theme.default.css" />
+
+	<!-- Magnific Popup -->
+	<link type="text/css" rel="stylesheet" href="css/magnific-popup.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+	<link
+		href="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.css"
+		rel="stylesheet" type="text/css">
+	<link
+		href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.13.0.min.css"
+		rel="stylesheet" type="text/css">
+	<link
+		href="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.13.0.min.css"
+		rel="stylesheet" type="text/css">
+
+	<script src="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.js"></script>
+	<script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.13.0.min.js"></script>
+	<script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.13.0.min.js"></script>
+	
+	<style>
+
+	img{
+
+	float:left;
+
+	}
+	</style>
+</head>
+
+<body>
+	<!-- Header -->
+	<header id="home">
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url('./img/background1.jpg');">
+			<div class="overlay"></div>
+		</div>
+		<!-- /Background Image -->
+
+		<!-- Nav -->
+		<nav id="nav" class="navbar nav-transparent">
+			<div class="container">
+
+				<div class="navbar-header">
+					<!-- Collapse nav button -->
+					<div class="nav-collapse">
+						<span></span>
+					</div>
+					<!-- /Collapse nav button -->
+				</div>
+
+				<!--  Main navigation  -->
+				<ul class="main-nav nav navbar-nav navbar-right">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="https://data.london.gov.uk/dataset/use-of-force">Data Source</a></li>
+					<li><a href="https://github.com/eafox/DI_CapstoneProject">GitHub</a></li>
+				</ul>
+				<!-- /Main navigation -->
+
+			</div>
+		</nav>
+		<!-- /Nav -->
+
+		<!-- home wrapper -->
+		<div class="home-wrapper">
+			<div class="container">
+				<div class="row">
+
+					<!-- home content -->
+					<div class="col-md-10 col-md-offset-1">
+						<div class="home-content">
+							<h1 class="white-text">London Metropolitan Police Service Use of Force Dataset</h1>
+							<h2 class="white-text">An Interactive Visualization
+							</h2>
+						</div>
+					</div>
+					<!-- /home content -->
+
+				</div>
+			</div>
+		</div>
+		<!-- /home wrapper -->
+
+	</header>
+	<!-- /Header -->
+
+	<!-- About -->
+	<div id="about" class="section md-padding">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title">Background on the Data</h2>
+				</div>
+				<!-- /Section header -->
+
+				<!-- about -->
+				<div class="col-md-4">
+					<div class="about">
+						<h3>Release Announcement</h3>
+						<p>The dataset was first made public on 1 August 2017 and included incidents from 1 April of that year onwards. It currently contains data through June 2018.</p>
+						<a href="http://news.met.police.uk/news/met-release-figures-on-use-of-force-253181">Read more</a>
+					</div>
+				</div>
+				<!-- /about -->
+
+				<!-- about -->
+				<div class="col-md-4">
+					<div class="about">
+						<h3>Press Coverage</h3>
+						<p>When the data was released, many news outlets raised questions as to why black citizens were the subject of 36% of the incidents even though they only make up 13% of the city's population.</p>
+						<a href="https://www.theguardian.com/uk-news/2017/aug/01/met-police-using-force-against-disproportionately-large-number-of-black-people">Read more</a>
+					</div>
+				</div>
+				<!-- /about -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /About -->
+
+
+	<!-- Portfolio -->
+	<div id="portfolio" class="section md-padding bg-grey">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title">Purpose of This Site</h2>
+				</div>
+				<!-- /Section header -->
+
+				<!-- Work -->
+				<p>Both the US and the UK have recently seen large-scale protests in response to incidents of police brutality, particularly involving black citizens as the targets. This has led to a (often heated) dialogue concerning whether modern policing is systematically prejudiced against minorities. After the first round of the London Met database was published, it was widely reported that a disproportionate amount of these use of force incidents involved black citizens.  
+				</p>
+				<p>The purpose of the analysis performed for this site was to use machine learning techniques to determine what factors have the biggest impact on determining the outcome of these incidents. In other words, what is happening in some of these incidents but not others that is leading to either the victim or officer getting injured?
+				</p>
+				<p>The details of this analysis are available to explore below. There are results of the initial analysis and an interactive interface that includes a map of the incident outcomes by borough as well as a map of the qualities of the boroughs that influence the incidents outcomes. Finally, there is an incident generator which allows the user to put in hypothetical characteristics of an encounter and the machine learning model created will give the user the chance of the subject and the officer getting injured if that incident were to occur in each of the boroughs.
+				</p>
+				<p>The FBI are currently working on releasing a <a href="https://ucr.fbi.gov/use-of-force">similar database</a> for various US cities. When available, this data can be analyzed similarly. This will allow for an interesting comparison to be made between these incidents in a country where the police commonly carry firearms and one where they don’t.
+				</p>
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Portfolio -->
+	
+		<!-- Why Choose Us -->
+	<div id="features" class="section md-padding">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- why choose us content -->
+				<div class="col-md-6">
+					<div class="section-header">
+						<h2 class="title">Exploratory Analysis</h2>
+					</div>
+					<div class="feature">
+						<i class="fa fa-check"></i>
+						<p>As expected, subject's behavior is the most important factor with other tactics being tried before resorting to force.</p>
+					</div>
+					<div class="feature">
+						<i class="fa fa-check"></i>
+						<p>However location and borough were in the top 10, suggesting where the incident takes place is important.</p>
+					</div>
+					<div class="feature">
+						<i class="fa fa-check"></i>
+						<p>Factors relating to both the "percieved neighborhood quality" (subjective well-being score) and the "actual neighborhood quality" (borough unemployment rate and arson crimes) scored in the top 10 as well.</p>
+					</div>
+					<div class="feature">
+						<i class="fa fa-check"></i>
+						<p><b>Hypothesis:</b>The racial skew in targets is not the result of direct racism but possible profiling by neighborhood.</p>
+					</div>
+				</div>
+				<!-- /why choose us content -->
+				
+				<!-- rtree -->
+				<div class="rtree">
+					<div class="rtree-meta">
+						<img src="./img/prelim.jpeg" alt="">
+					</div>
+				</div>
+				<!-- /rtree -->
+
+			</div>
+			<!-- /Row -->
+
+			<!-- Row -->
+			<div class="row">
+				
+				<!-- rtree2 -->
+				<div class="rtree2">
+					<div class="rtree2-meta">
+						<img src="./img/staffinj.jpeg" alt="">
+					</div>
+				</div>
+				<!-- /rtree2 -->
+				
+				<!-- rtree3 -->
+				<div class="rtree3">
+					<div class="rtree3-meta">
+						<img src="./img/subinj.jpeg" alt="">
+					</div>
+				</div>
+				<!-- /rtree3 -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Why Choose Us -->
+
+
+	<!-- Service -->
+	<div id="service" class="section md-padding bg-grey">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title">Interactive Maps</h2>
+				</div>
+				<!-- /Section header -->
+				
+				<div class="plot1">
+					{{tempDiv1|safe}}
+					<script src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.js"></script>
+					<script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.7.min.js"></script>
+					<script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.7.min.js"></script>
+					{{tempScript1|safe}}
+				</div>
+				
+				
+				
+				
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Service -->
+
+
+
+
+	<!-- Numbers -->
+	<div id="numbers" class="section sm-padding">
+
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url('./img/background2.jpg');">
+			<div class="overlay"></div>
+		</div>
+		<!-- /Background Image -->
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- number -->
+				<!-- /number -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Numbers -->
+
+	<!-- Pricing -->
+	<div id="pricing" class="section md-padding">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title">Incident Generator</h2>
+				</div>
+				<!-- /Section header -->
+				
+				<!-- Fill boxes -->
+				<form id='GIVE ME AN ID' method='post' action='GIVE ME AN ACTION'>
+				<select name="gender">
+					<option value="female">Female</option>
+					<option value="male">Male</option>
+				</select>
+				<select name="age group">
+					<option value="0-10">10 and Younger</option>
+					<option value="11-17">11 to 17</option>
+					<option value="18-34">18 to 34</option>
+					<option value="35-49">35 to 49</option>
+					<option value="50-64">50 to 64</option>
+					<option value="65-and-over">65 and Up</option>			
+				</select>
+				<select name="behavior">
+					<option value="compliant">Compliant</option>
+					<option value="verbal_resistance">Verbal Resistance/Gestures</option>			
+					<option value="passive_resistance">Passive Resistance</option>					
+					<option value="active_resistance">Active Resistance</option>					
+					<option value="aggressive_resistance">Aggressive Resistance</option>					
+					<option value="serious_or_aggravated_resistance">Serious or Aggravated Resistance</option>
+				</select>
+				<select name="influences">
+					<option value="inf_none">None</option>
+					<option value="drugs">Drugs</option>
+					<option value="alcohol">Alcohol</option>
+				</select>
+				<select name="time of day">
+					<option value="0">12:00 AM</option>
+					<option value="1">1:00 AM</option>
+					<option value="2">2:00 AM</option>
+					<option value="3">3:00 AM</option>
+					<option value="4">4:00 AM</option>
+					<option value="5">5:00 AM</option>
+					<option value="6">6:00 AM</option>
+					<option value="7">7:00 AM</option>
+					<option value="8">8:00 AM</option>
+					<option value="9">9:00 AM</option>
+					<option value="10">10:00 AM</option>
+					<option value="11">11:00 AM</option>
+					<option value="12">12:00 PM</option>
+					<option value="13">1:00 PM</option>
+					<option value="14">2:00 PM</option>
+					<option value="15">3:00 PM</option>
+					<option value="16">4:00 PM</option>
+					<option value="17">5:00 PM</option>
+					<option value="18">6:00 PM</option>
+					<option value="19">7:00 PM</option>
+					<option value="20">8:00 PM</option>
+					<option value="21">9:00 PM</option>
+					<option value="22">10:00 PM</option>
+					<option value="23">11:00 PM</option>
+				</select>
+				<select name="location">
+					<option value="licensed_premises">Licensed Premises</option>
+					<option value="street_highway">Street or Highway</option>
+					<option value="custody_block">Custody Block</option>
+					<option value="mental_health_setting">Mental Health Setting</option>
+					<option value="dwelling">Dwelling</option>
+					<option value="retail_premises">Retail Premises</option>
+					<option value="open_ground">Open Ground (park,parking lot,etc.)</option>
+					<option value="sports_event">Sports Event</option>
+					<option value="public_transport">Public Transport</option>
+					<option value="police_vehicle">Police Vehicle</option>
+					<option value="police_vehicle_cage">Police Vehicle with Subject in Handling Cage</option>
+					<option value="ambulance">Ambulance</option>
+					<option value="loc_other">Other</option>
+				</select>
+				<input type="submit" value="Submit">
+				</form>
+				<!-- /Fill boxes -->
+				
+				
+				
+
+			</div>
+			<!-- Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Pricing -->
+
+
+	<!-- Testimonial -->
+	<div id="testimonial" class="section md-padding">
+
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url('./img/background3.jpg');">
+			<div class="overlay"></div>
+		</div>
+		<!-- /Background Image -->
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+				
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="white-text">Further Resources</h2>
+				</div>
+				<!-- /Section header -->
+
+
+				<!-- Testimonial slider -->
+				<div class="col-md-10 col-md-offset-1">
+					<div id="testimonial-slider" class="owl-carousel owl-theme">
+
+						<!-- testimonial -->
+						<div class="testimonial">
+							<div class="testimonial-meta">
+								<h3 class="white-text"><a href="https://www.met.police.uk/sd/stats-and-data/">London Met Stats Dashboard</a></h3>
+								<p class="white-text">The London Met has several visualizations for various crime data beyond this on their website</p>
+							</div>
+						</div>
+						<!-- /testimonial -->
+
+						<!-- testimonial -->
+						<div class="testimonial">
+							<div class="testimonial-meta">
+								<h3 class="white-text"><a href="https://books.google.co.uk/books?hl=en&lr=&id=tV6MAQAAQBAJ&oi=fnd&pg=PA177&dq=Toward+a+Theory+of+Race,+Crime,+and+Urban+Inequality&ots=ErFKtjljan&sig=Ecnv8bpTfbCVtn4Fejx9NrzF9gw#v=onepage&q=Toward%20a%20Theory%20of%20Race%2C%20Crime%2C%20and%20Urban%20Inequality&f=false">Toward a Theory of Race, Crime, and Justice</a></h3>
+								<p class="white-text"></p>
+							</div>
+						</div>
+						<!-- /testimonial -->
+
+						<!-- testimonial -->
+						<div class="testimonial">
+							<div class="testimonial-meta">
+								<h3 class="white-text"><a href="http://eprints.lse.ac.uk/9576/1/Policing_ethnic_minority_communities_(LSERO).pdf">Policing Ethnic Minority Communities</a></h3>
+								<p class="white-text"></p>
+							</div>
+						</div>
+						<!-- /testimonial -->
+
+					</div>
+				</div>
+				<!-- /Testimonial slider -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Testimonial -->
+
+
+	<!-- Footer -->
+	<footer id="footer" class="sm-padding bg-dark">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<div class="col-md-12">
+
+					<!-- footer logo -->
+					<div class="footer-logo">
+						<a href="index.html"><img src="img/logo-alt.png" alt="logo"></a>
+					</div>
+					<!-- /footer logo -->
+
+					<!-- footer copyright -->
+					<div class="footer-copyright">
+						<p>Copyright © 2017. All Rights Reserved. Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+					</div>
+					<!-- /footer copyright -->
+
+				</div>
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</footer>
+	<!-- /Footer -->
+
+	<!-- Back to top -->
+	<div id="back-to-top"></div>
+	<!-- /Back to top -->
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!-- /Preloader -->
+
+	<!-- jQuery Plugins -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+</body>
+
+</html>
