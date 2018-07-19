@@ -9,6 +9,7 @@ from bokeh.plotting import figure, show, output_file
 from bokeh.models import LinearColorMapper, ColumnDataSource, ColorBar
 from bokeh.models.callbacks import CustomJS
 from bokeh.models.widgets import Select
+from bokeh.models.tools import HoverTool
 from bokeh.layouts import column
 from bokeh.palettes import viridis
 from bokeh.embed import components
@@ -213,7 +214,7 @@ def plot1(inDF):
         title="Number of Incidents by Borough", tools=TOOLS,
         x_axis_location=None, y_axis_location=None,
         tooltips=[
-            ("Borough", "@Borough"), ("Number Incidents", "@count"), ("Taser Use Rate", "@Taser_Per"), ("Subject Injury Rate", "@SubInj_Per"), ("Officer Injury Rate", "@OffInj_Per")
+            ("Borough", "@Borough"), ("Number Incidents", "@count"), ("Taser Use Rate", "@Taser_Per"), ("Subject Injury Rate", "@SubInj_Per"), ("Officer Injury Rate", "@OffInj_Per"),
         ])
     p.grid.grid_line_color = None
     p.hover.point_policy = "follow_mouse"
