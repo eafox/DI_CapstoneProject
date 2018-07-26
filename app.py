@@ -212,10 +212,10 @@ def plot1(inDF):
             idxD = int(inDF.loc[inDF['Borough'] == borough, 'OffInj_Per'].iloc[0])
             injColors_o.append(colors2[idxD])
         except ValueError:
-            numColors.append('black')
-            perColors.append('black')
-            injColors_s.append('black')
-            injColors_o.append('black')
+            numColors.append('grey')
+            perColors.append('grey')
+            injColors_s.append('grey')
+            injColors_o.append('grey')
 
     inDF['Total Incidents']=numColors
     num_mapper = LinearColorMapper(palette=colors, low=inDF['count'].min(), high=inDF['count'].max())
@@ -302,8 +302,8 @@ def plot2(full):
     full['Homes with Access to Open Space and Nature']=col_Colors[8]
     green_mapper = LinearColorMapper(palette=colors, low=full['GreenSpace'].min(), high=full['GreenSpace'].max())	
 	
-    full2=full.fillna(0)
-    sourceD=ColumnDataSource(full2)
+    #~ full2=full.fillna(0)
+    sourceD=ColumnDataSource(full)
 
     #Create Base Plot
     TOOLS = "pan,wheel_zoom,reset,hover,save"
