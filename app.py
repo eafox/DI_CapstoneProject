@@ -247,6 +247,9 @@ def plot1(inDF):
     r=p.patches('x', 'y', source=sourceD,
               fill_color='Total Incidents',
               fill_alpha=0.7, line_color="white", line_width=0.5)
+    c = ColorBar(color_mapper=num_mapper,
+                     label_standoff=12, border_line_color=None, location=(0,0))
+    p.add_layout(c, 'right')
 
     cb_cselect = CustomJS(args=dict(r=r,sourceD=sourceD,bars=bars), code ="""
         var selected_color = cb_obj.value;
