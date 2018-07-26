@@ -234,8 +234,8 @@ def plot1(inDF):
 
     #Create Base Plot
     TOOLS = "pan,wheel_zoom,reset,hover,save"
-    p = figure(
-        title="Number of Incidents by Borough", tools=TOOLS,
+    p = figure(plot_width=550, plot_height=550,
+        title="Incident Outcomes by Borough", tools=TOOLS,
         x_axis_location=None, y_axis_location=None,
         tooltips=[
             ("Borough", "@Borough"), ("Number Incidents", "@count"), ("Taser Use Rate", "@Taser_Per"), ("Subject Injury Rate", "@SubInj_Per"), ("Officer Injury Rate", "@OffInj_Per"),
@@ -307,7 +307,7 @@ def plot2(full):
 
     #Create Base Plot
     TOOLS = "pan,wheel_zoom,reset,hover,save"
-    p = figure(
+    p = figure(plot_width=550, plot_height=550,
         title="Borough Descriptive Statistics", tools=TOOLS,
         x_axis_location=None, y_axis_location=None)
     p.grid.grid_line_color = None
