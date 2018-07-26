@@ -277,7 +277,7 @@ def plot2(full):
                 else:
                     val = (val - full[datName].min()) * ((250-0)/(full[datName].max()-full[datName].min()))
                     idx = int(val)
-                    colList.append(colors[idx])
+                colList.append(colors[idx])
             except ValueError:
                 colList.append('grey')
         col_Colors.append(colList)
@@ -295,10 +295,10 @@ def plot2(full):
     gcse_mapper = LinearColorMapper(palette=colors, low=full['Avg_GCSE'].min(), high=full['Avg_GCSE'].max())
     full['Public Transportation Accessibility']=col_Colors[5]
     transp_mapper = LinearColorMapper(palette=colors, low=full['Pub_TransAcc'].min(), high=full['Pub_TransAcc'].max())
-    #~ full['Hate Crime Rate']=col_Colors[6]
-    #~ hate_mapper = LinearColorMapper(palette=colors, low=full['HateCrime_Rate'].min(), high=full['HateCrime_Rate'].max())
-    #~ full['Voter Participation Rate']=col_Colors[7]
-    #~ particip_mapper = LinearColorMapper(palette=colors, low=full['Vote_Particip'].min(), high=full['Vote_Particip'].max())
+    full['Hate Crime Rate']=col_Colors[6]
+    hate_mapper = LinearColorMapper(palette=colors, low=full['HateCrime_Rate'].min(), high=full['HateCrime_Rate'].max())
+    full['Voter Participation Rate']=col_Colors[7]
+    particip_mapper = LinearColorMapper(palette=colors, low=full['Vote_Particip'].min(), high=full['Vote_Particip'].max())
     full['Homes with Access to Open Space and Nature']=col_Colors[8]
     green_mapper = LinearColorMapper(palette=colors, low=full['GreenSpace'].min(), high=full['GreenSpace'].max())	
 	
@@ -325,8 +325,8 @@ def plot2(full):
         """)
     color_select = Select(title="Show:", value="Total Incidents", 
            options=['Crime Rate','Unemployment Rate','Deliberate Fires Set','Subjective Well-Being Score','Average GCSE Score',
-           'Public Transportation Accessibility', 'Homes with Access to Open Space and Nature'],
-           callback=cb_cselect) #'Hate Crime Rate', 'Voter Participation Rate', 
+           'Public Transportation Accessibility', 'Hate Crime Rate', 'Voter Participation Rate', 'Homes with Access to Open Space and Nature'],
+           callback=cb_cselect)  
     layout = column(color_select, p)
 	
     return(layout)
