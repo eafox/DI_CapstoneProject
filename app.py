@@ -309,7 +309,9 @@ def plot2(full):
     TOOLS = "pan,wheel_zoom,reset,hover,save"
     p = figure(plot_width=550, plot_height=550,
         title="Borough Descriptive Statistics", tools=TOOLS,
-        x_axis_location=None, y_axis_location=None)
+        x_axis_location=None, y_axis_location=None,
+        tooltips=[('Borough','@NAME'),('Crime Rate','@Crime_Rate'),('Unemployment Rate','@Unemp_Rate'),('Deliberate Fires Set','@Delib_Fires'),('Subjective Well-Being Score','@Sub_WellBe'),('Average GCSE Score','@Avg_GCSE'),
+        ('Public Transportation Accessibility','@Pub_TransAcc'), ('Hate Crime Rate','@HateCrime_Rate'), ('Voter Participation Rate','@Vote_Particip'), ('Homes with Access to Open Space and Nature','@GreenSpace')])
     p.grid.grid_line_color = None
     p.hover.point_policy = "follow_mouse"
     
