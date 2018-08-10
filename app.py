@@ -18,6 +18,8 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 import shapely
+import dill
+import re
 
 ###################
 # FLASK FRAMEWORK #
@@ -28,18 +30,41 @@ app = Flask(__name__)
 app.vars={}
 @app.route('/',methods=['GET','POST'])
 def index():
-    baseDF=getMap("Data/data_store/ESRI/London_Borough_Excluding_MHW.shp")
-    tempDF1 = makeDF1(baseDF,"Data/00_FullDF.csv")
-    tempPlot1 = plot1(tempDF1)
+    if request.method == 'POST':
+        #~ baseDF=getMap("Data/data_store/ESRI/London_Borough_Excluding_MHW.shp")
+        #~ tempDF1 = makeDF1(baseDF,"Data/00_FullDF.csv")
+        #~ tempPlot1 = plot1(tempDF1)
 
-    tempDF2 = makeDF2(baseDF,"Data/00_FullDF.csv")
-    tempPlot2 = plot2(tempDF2)
+        #~ tempDF2 = makeDF2(baseDF,"Data/00_FullDF.csv")
+        #~ tempPlot2 = plot2(tempDF2)
 
+        rfMod=dill.load(open('fullMod.dill','r'))
 	
-    script1, div1 = components(tempPlot1)
-    script2, div2 = components(tempPlot2)		
-    return render_template('index.html',tempScript1=script1,tempDiv1=div1,tempScript2=script2,tempDiv2=div2)
+        #~ script1, div1 = components(tempPlot1)
+        #~ script2, div2 = components(tempPlot2)		
+        #~ return render_template('index.html',tempScript1=script1,tempDiv1=div1,
+        #~ tempScript2=script2,tempDiv2=div2,
+        #~ tempStaffRes=staffRes,tempSubRes=subRes,tempEvnts=evnts)
 
+        
+        inVals=incGen(rfMod)
+        return render_template('result.html',tempStaffInj=inVals[0],
+        tempSubInj=inVals[1],tempEvnts=inVals[2])
+        
+    else:
+        baseDF=getMap("Data/data_store/ESRI/London_Borough_Excluding_MHW.shp")
+        tempDF1 = makeDF1(baseDF,"Data/00_FullDF.csv")
+        tempPlot1 = plot1(tempDF1)
+
+        tempDF2 = makeDF2(baseDF,"Data/00_FullDF.csv")
+        tempPlot2 = plot2(tempDF2)
+
+        #~ fullMod=dill.load(open('fullMod.dill','r'))
+	
+        script1, div1 = components(tempPlot1)
+        script2, div2 = components(tempPlot2)		
+        return render_template('index.html',tempScript1=script1,tempDiv1=div1,
+        tempScript2=script2,tempDiv2=div2)		
 
 ################
 # GET MAP DATA #
@@ -335,6 +360,64 @@ def plot2(full):
     layout = column(color_select, p)
 	
     return(layout)
+
+######################
+# INCIDENT GENERATOR #
+######################
+def incGen(fullMod):
+    sim=np.array([0]*74).reshape(1,-1)
+    
+    sim[0][0]=int(request.form.get('time of day'))
+    
+    change=[int(request.form.get('gender')),int(request.form.get('age group')),
+    int(request.form.get('ethnicity')),int(request.form.get('behavior')),
+    int(request.form.get('influences')),int(request.form.get('borough')),
+    int(request.form.get('location'))]
+    
+    for pos in change:
+        if pos<=74:
+            sim[0][pos]=1
+    
+    
+    prdct=fullMod.predict(sim)[0]
+    
+    ans=['StaffInjured','SubjectInjured','Tactic 1_Nothin','Tactic 1_AEP aimed','Tactic 1_AEP fired','Tactic 1_Baton drawn',
+    'Tactic 1_Baton used','Tactic 1_CED (Taser) aimed','Tactic 1_CED (Taser) angle drive stun','Tactic 1_CED (Taser) arced',
+    'Tactic 1_CED (Taser) drawn','Tactic 1_CED (Taser) drive stun','Tactic 1_CED (Taser) fired','Tactic 1_CED (Taser) red-dotted',
+    'Tactic 1_Compliant handcuffing','Tactic 1_Dog bite','Tactic 1_Dog deployed','Tactic 1_Firearm aimed','Tactic 1_Firearm fired',
+    'Tactic 1_Ground restraint','Tactic 1_Irritant spray - CS drawn','Tactic 1_Irritant spray - CS used','Tactic 1_Limb/body restraints',
+    'Tactic 1_Non-compliant handcuffing','Tactic 1_Other/improvised','Tactic 1_Shield','Tactic 1_Spit guard','Tactic 1_Tactical communications',
+    'Tactic 1_Unarmed skills (including pressure points, strikes, restraints and take-downs)','Tactic 2_Nothing','Tactic 2_AEP aimed',
+    'Tactic 2_Baton drawn','Tactic 2_Baton used','Tactic 2_CED (Taser) aimed','Tactic 2_CED (Taser) angle drive stun',
+    'Tactic 2_CED (Taser) arced','Tactic 2_CED (Taser) drawn','Tactic 2_CED (Taser) drive stun','Tactic 2_CED (Taser) fired',
+    'Tactic 2_CED (Taser) red-dotted','Tactic 2_Compliant handcuffing','Tactic 2_Dog bite','Tactic 2_Dog deployed','Tactic 2_Firearm aimed',
+    'Tactic 2_Firearm fired','Tactic 2_Ground restraint','Tactic 2_Irritant spray - CS drawn','Tactic 2_Irritant spray - CS used',
+    'Tactic 2_Limb/body restraints','Tactic 2_Non-compliant handcuffing','Tactic 2_Other/improvised','Tactic 2_Shield','Tactic 2_Spit guard',
+    'Tactic 2_Tactical communications','Tactic 2_Unarmed skills (including pressure points, strikes, restraints and take-downs)','Tactic 3_Nothing',
+    'Tactic 3_AEP aimed','Tactic 3_Baton drawn','Tactic 3_Baton used','Tactic 3_CED (Taser) aimed','Tactic 3_CED (Taser) angle drive stun',
+    'Tactic 3_CED (Taser) arced','Tactic 3_CED (Taser) drawn','Tactic 3_CED (Taser) drive stun','Tactic 3_CED (Taser) fired',
+    'Tactic 3_CED (Taser) red-dotted','Tactic 3_Compliant handcuffing','Tactic 3_Dog bite','Tactic 3_Dog deployed','Tactic 3_Firearm aimed',
+    'Tactic 3_Ground restraint','Tactic 3_Irritant spray - CS drawn','Tactic 3_Irritant spray - CS used','Tactic 3_Limb/body restraints',
+    'Tactic 3_Non-compliant handcuffing','Tactic 3_Other/improvised','Tactic 3_Shield','Tactic 3_Spit guard','Tactic 3_Tactical communications',
+    'Tactic 3_Unarmed skills (including pressure points, strikes, restraints and take-downs)']
+    
+    
+    evnts=[]
+    for i in xrange(len(prdct[2:])):
+        if prdct[i] == 1:
+            fin_rsp=re.findall(r'_(.*)', ans[i])[0]
+            evnts.append(fin_rsp)
+			
+    if prdct[0]==1:
+        staffRes="Yes"
+    if prdct[1]==1:
+        subRes="Yes"
+    else:
+        staffRes="No"
+        subRes="No"
+    evnts=', '.join(evnts)
+    
+    return([staffRes,subRes,evnts])
 
 ###############
 # WRAPPING UP #

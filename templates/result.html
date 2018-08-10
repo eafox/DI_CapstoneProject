@@ -1,0 +1,74 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="Milestone Project" content="For Data Incubator 12 day prep program">
+<meta name="author" content="@eafox">
+<style>
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2657A0;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="/">Home</a>
+</div>
+
+<div style="padding-left:16px">
+<!--
+  <h2>Here is the info you entered:</h2>
+	Gen: {{tempGen|safe}} <br>
+	Age: {{tempAge|safe}} <br>
+	Eth: {{tempEth|safe}} <br>
+	Behav: {{tempBehav|safe}} <br>
+	Inf: {{tempInf|safe}} <br>
+	Boro: {{tempBoro|safe}} <br>
+	Loca: {{tempLoca|safe}} <br>
+	Time: {{tempTime|safe}} <br>
+-->
+	
+  <h2>Most Likely Outcome:</h2>
+  Was the officer injured? {{tempStaffInj|safe}} <br>
+  Were you injured? {{tempSubInj|safe}} <br>
+  What happened? {{tempEvnts|safe}} <br>
+  
+  
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
